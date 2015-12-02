@@ -61,7 +61,11 @@
 	})
 	ReactDOM.render(
 	  React.createElement("div", null, 
-	    React.createElement("p", {className: "tc tl-ns pll-ns plxxl-l gray up"}, React.createElement("a", {className: "link ttu f3 blue-pure b", href: "https://liaa.github.io/unicodo/"}, "unicodo"), " some useful unicodes."), 
+	    React.createElement("div", {className: "tc tl-ns pll-ns plxxl-l"}, 
+	    React.createElement("p", {className: "up"}, React.createElement("a", {className: "link ttu f3 blue-pure b", href: "https://liaa.github.io/unicodo/"}, "┌| unicodo |┐")), 
+	    React.createElement("p", {className: "man gray"}, "some useful unicodes"), 
+	    React.createElement("p", {className: "man"}, React.createElement("a", {href: "https://github.com/liaa/unicodo", target: "_blank", className: "link gray"}, "submit →"))
+	    ), 
 	    React.createElement("ul", {className: "list pln mtl-ns cf"}, 
 	      list
 	    )
