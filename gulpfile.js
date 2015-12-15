@@ -4,9 +4,10 @@ var webpack = require('webpack-stream');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var less = require('gulp-less');
+var minifyCSS = require('gulp-mini-css');
 
+//var ENV = JSON.parse(process.env.Gulp_ENV);
 var buildDir = "./build";
-
 
 gulp.task('mustache', function(){
     gulp.src('./src/templates/*.mustache')
@@ -39,6 +40,12 @@ gulp.task('less', function () {
         .pipe(gulp.dest(buildDir + '/css/'));
 });
 
+gulp.task('minifyCSS', function(){
+  gulp.src(buildDir + '/css/**.css')
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(buildDir+ '/css/'));
+})
+
 
 gulp.task('watch', function () {
     gulp.watch('./src/less/**/*.less', ['less']);
@@ -49,5 +56,11 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ["less", "mustache", "webpack", "browser-sync"], function(){
+  runSequence('watch');
+});
+
+gulp.task('release-preview', ["less", "mustache", "webpack"], function(){
+  runSequence('minifyCSS');
+  runSequence('browser-sync');
   runSequence('watch');
 });
