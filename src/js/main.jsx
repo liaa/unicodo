@@ -18,9 +18,6 @@ var unicodes = [
   "⏎  Return",
   "↩ Return",
   "⎋ Escape",
-  "⇥ Tab forward",
-  "⇤  Tab back",
-  "⌽ Eject"
 ]
 
 var list = unicodes.map(function(unicode, index){
