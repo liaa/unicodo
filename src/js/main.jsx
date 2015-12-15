@@ -31,12 +31,16 @@ var list = unicodes.map(function(unicode, index){
       <div className="dt w-100 tc">
         <div className="dtr mega ">
           <div className="dtc">
-            {code}
+            <p className="man lh-solid">
+              {code}
+            </p>
           </div>
         </div>
         <div className="dtr">
           <div className="thin dtc ptm black-40">
+            <p className="man">
               {name}
+            </p>
           </div>
         </div>
       </div>
